@@ -11,6 +11,7 @@ data/
 datasets/
 runs/
 results/
+PKLot/
 
 # 모델 가중치
 *.pt
@@ -19,3 +20,6 @@ results/
 
 # 캐시 파일
 *.cache
+
+# 에디터 설정
+.vscode/
