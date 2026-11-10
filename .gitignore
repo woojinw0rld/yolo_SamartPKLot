@@ -1,3 +1,21 @@
+# 파이썬 캐시
+__pycache__/
+*.pyc
+
+# 주피터 자동 저장
+.ipynb_checkpoints/
+
+# 데이터, 학습 결과 (용량 큼)
+archive/
+data/
 datasets/
-PKLot/
-.vscode/
+runs/
+results/
+
+# 모델 가중치
+*.pt
+*.engine
+*.onnx
+
+# 캐시 파일
+*.cache
