@@ -1,3 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+torch==2.11.0+cu128
+torchaudio==2.11.0+cu128
+torchvision==0.26.0+cu128
+
+
 anyio==4.15.1
 certifi==2026.7.22
 charset-normalizer==3.5.2
@@ -33,9 +40,6 @@ PyYAML==6.0.3
 requests==2.34.2
 six==1.17.0
 sympy==1.14.0
-torch==2.11.0+cu128
-torchaudio==2.11.0+cu128
-torchvision==0.26.0+cu128
 typing_extensions==4.16.0
 tzdata==2026.4
 ultralytics==8.4.171
