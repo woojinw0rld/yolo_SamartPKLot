@@ -17,6 +17,7 @@ PKLot/
 *.pt
 *.engine
 *.onnx
+models/*
 
 # 캐시 파일
 *.cache
