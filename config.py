@@ -37,8 +37,8 @@ RUNS = ROOT / "runs" # Ultralytics 학습결과(자동 생성됨) 가중치도 �
 # RESULT = ROOT / ""
 
 # 분류 모델 만든 거 A, B
-MODEL_A_PT = RUNS / "classify" / "runs" / "cls_v1" / "weights" / "best.pt" #PUC주차장 파인튜닝 안함. 기본 모델로 두고 하는 중
-MODEL_B_PT = RUNS / "classify" / "runs" / "cls_ft_puc5d" / "weights" / "best.pt" #PUC주차장 파인튜닝 한 실험본.
+MODEL_A_PT = MODELS / "cls_v1" / "weights" / "best.pt" #PUC주차장 파인튜닝 안함. 기본 모델로 두고 하는 중
+MODEL_B_PT = MODELS / "cls_ft_puc5d" / "weights" / "best.pt"  #PUC주차장 파인튜닝 한 실험본.
 # ====================================================
 # 5. 공통 설정
 IMGSIZE = 96   #분류 모델 입력 크기(사진 사이즈)
