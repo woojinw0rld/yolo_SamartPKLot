@@ -63,8 +63,10 @@ def load_slots_xml(xml_path):
 
 # json읽기
 def load_slots_json(json_path):
-    print("json이 어떤식으로 생성되는지 몰라 미작성")
-    print("작성예정")
+    with open(json_path) as f:
+        data = json.load(f)
+    rows = [np.array(d["points"], dtype=np.float32) for d in data]
+    return pd.DataFrame(rows)
 
 
 # =========================================

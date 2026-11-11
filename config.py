@@ -64,6 +64,6 @@ def pathsList():
     for name, p in items.items():
         print(f"{name:13s} {p}")
 
-for d in [MODELS]:
+for d in [MODELS, MYLOT_IMAGES, MYLOT_ROIS]:
     d.mkdir(parents=True, exist_ok=True)
-# print(check_paths())
+print(check_paths())
