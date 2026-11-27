@@ -63,9 +63,10 @@ def load_slots_xml(xml_path):
 
 # json읽기
 def load_slots_json(json_path):
-    with open(json_path) as f:
+    with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
-    rows = [np.array(d["points"], dtype=np.float32) for d in data]
+    rows = [{"id": i, "points": np.array(d["points"], dtype=np.float32)}
+            for i, d in enumerate(data)]
     return pd.DataFrame(rows)
 
 
@@ -147,29 +148,36 @@ def draw(img, slots, labels):
     return out
 
 
-# 디버깅 
+#디버깅 
 # xml = list(PKLOT.rglob("*.xml"))[30]
 # jpg_path = xml.with_suffix(".jpg")
 # img = imread(jpg_path)
 # df = load_slots_xml(xml)
 # pts = df["points"]
 
-# print(pts[0])
+if __name__ == "__main__":
+    jpg_path = next(MYLOT_IMAGES.rglob("*.jpg"))
+    json_path = next(MYLOT_ROIS.rglob("*.json"))
+    df = load_slots_json(json_path)
+    pts = df["points"]
+    img = imread(jpg_path)
 
-# cropedImg = crop_minrect(img, pts[0]) 
-# plt.imshow(cropedImg)
-# plt.show()
-# cropedImg = crop_quad(img, pts[0]) 
-# plt.imshow(cropedImg)
-# plt.show()
+    print(pts[0])
+
+    cropedImg = crop_minrect(img, pts[0]) 
+    plt.imshow(cropedImg)
+    plt.show()
+    cropedImg = crop_quad(img, pts[0]) 
+    plt.imshow(cropedImg)
+    plt.show()
 
 
 
-# model_A = YOLO(MODEL_A_PT)
-# img     = imread(jpg_path)
-# slots   = load_slots_xml(jpg_path.with_suffix(".xml"))
+    model_A = YOLO(MODEL_A_PT)
+    img     = imread(jpg_path)
+    slots   = load_slots_json(json_path)
 
-# labels, confs = judge(model_A, img, slots)       # 자르기 + 판정
-# result = draw(img, slots, labels)                # 결과 그림
-# plt.imshow(result)
-# plt.show()
+    labels, confs = judge(model_A, img, slots)       # 자르기 + 판정
+    result = draw(img, slots, labels)                # 결과 그림
+    plt.imshow(result)
+    plt.show()
